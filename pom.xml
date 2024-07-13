@@ -9,10 +9,10 @@
 		<relativePath/> <!-- lookup parent from repository -->
 	</parent>
 	<groupId>com.pdaniel</groupId>
-	<artifactId>project</artifactId>
+	<artifactId>swapi</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
-	<name>project</name>
-	<description>Project template for Spring Boot - Dec2023 - Java 21 - no dependencies</description>
+	<name>swapi</name>
+	<description>Se trata de escribir un API RESTFul Java basado en Spring Boot que proporcione información sobre personajes de la saga de Star Wars permitiendo su visualización a través de una web basada en ReactJS.</description>
 	<properties>
 		<java.version>21</java.version>
 	</properties>

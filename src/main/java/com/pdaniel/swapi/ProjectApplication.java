@@ -1,4 +1,4 @@
-package com.pdaniel.project;
+package com.pdaniel.swapi;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
