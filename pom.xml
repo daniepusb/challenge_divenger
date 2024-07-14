@@ -83,18 +83,6 @@
 			<artifactId>json-path</artifactId>
 			<version>${json-path.version}</version>
 		</dependency>
-		<!-- https://mvnrepository.com/artifact/org.apache.tomcat.embed/tomcat-embed-core -->
-		<dependency>
-			<groupId>org.apache.tomcat.embed</groupId>
-			<artifactId>tomcat-embed-core</artifactId>
-			<version>${tomcat-embed-core.version}</version>
-		</dependency>
-		<!-- https://mvnrepository.com/artifact/org.apache.tomcat.embed/tomcat-embed-websocket -->
-		<dependency>
-			<groupId>org.apache.tomcat.embed</groupId>
-			<artifactId>tomcat-embed-websocket</artifactId>
-			<version>${tomcat-embed-websocket.version}</version>
-		</dependency>
 		<!-- https://mvnrepository.com/artifact/commons-fileupload/commons-fileupload -->
 		<!-- https://devhub.checkmarx.com/cve-details/CVE-2023-24998/-->
 		<dependency>
