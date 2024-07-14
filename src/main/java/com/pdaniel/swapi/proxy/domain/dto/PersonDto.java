@@ -15,13 +15,13 @@ import java.util.List;
 @AllArgsConstructor
 public class PersonDto implements Serializable {
 
-    private static final long serialVersionUID = 6227517122969162848L;
+    private static final long serialVersionUID = 6960929755180322552L;
 
     private String name;
-    private String birth_year;
+    private String birthYear;
     private String gender;
-    private String planet_name;
-    private String fastest_vehicle_driven;
-    private List<String> films;
+    private String planetName;
+    private String fastestVehicleDriven;
+    private List<FilmDto> films;
 
 }
