@@ -26,6 +26,10 @@
 		<commons-fileupload2-jakarta-servlet6.version>2.0.0-M2</commons-fileupload2-jakarta-servlet6.version>
 		<spring-web.version>6.1.11</spring-web.version>
 		<commons-fileupload.version>1.5</commons-fileupload.version>
+		<springfox-swagger2.version>3.0.0</springfox-swagger2.version>
+		<springfox-swagger-ui.version>3.0.0</springfox-swagger-ui.version>
+		<springfox-bean-validators.version>3.0.0</springfox-bean-validators.version>
+		<springdoc-openapi-starter-webmvc-ui.version>2.6.0</springdoc-openapi-starter-webmvc-ui.version>
 
 	</properties>
 	<dependencies>
@@ -57,7 +61,27 @@
 			<version>${openfeign.version}</version>
 		</dependency>
 
-
+		<!--		Swagger-->
+		<dependency>
+			<groupId>io.springfox</groupId>
+			<artifactId>springfox-swagger2</artifactId>
+			<version>${springfox-swagger2.version}</version>
+		</dependency>
+		<dependency>
+			<groupId>io.springfox</groupId>
+			<artifactId>springfox-swagger-ui</artifactId>
+			<version>${springfox-swagger-ui.version}</version>
+		</dependency>
+		<dependency>
+			<groupId>io.springfox</groupId>
+			<artifactId>springfox-bean-validators</artifactId>
+			<version>${springfox-bean-validators.version}</version>
+		</dependency>
+		<dependency>
+			<groupId>org.springdoc</groupId>
+			<artifactId>springdoc-openapi-starter-webmvc-ui</artifactId>
+			<version>${springdoc-openapi-starter-webmvc-ui.version}</version>
+		</dependency>
 
 		<!-- https://mvnrepository.com/artifact/ch.qos.logback/logback-classic -->
 		<dependency>
