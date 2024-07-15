@@ -9,7 +9,9 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
+import lombok.extern.slf4j.Slf4j;
 
+@Slf4j
 @RestController
 @RequestMapping("/swapi-proxy")
 public class ProxyController {
@@ -19,7 +21,9 @@ public class ProxyController {
 
     @GetMapping("/person-info")
     public ResponseEntity<ResponseDto> searchPersonByName(@RequestParam("name") String name) {
-        var result = service.getPersonInfo(name);
+        log.info("Start");
+        ResponseDto result = service.getPersonInfo(name);
+        log.info("End");
         return new ResponseEntity<>(result, HttpStatus.OK);
     }
 
