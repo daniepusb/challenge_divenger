@@ -18,6 +18,7 @@ public class FilmDto implements Serializable {
     private static final long serialVersionUID = 6434831205993287292L;
 
     private String name;
+    @JsonProperty("release_date")
     private String releaseDate;
     @JsonProperty(access = JsonProperty.Access.WRITE_ONLY)
     private String title;

@@ -1,5 +1,6 @@
 package com.pdaniel.swapi.proxy.api.controller;
 
+import com.pdaniel.swapi.proxy.domain.dto.ResponseDto;
 import com.pdaniel.swapi.proxy.domain.services.ProxyService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
@@ -17,7 +18,7 @@ public class ProxyController {
     private ProxyService service;
 
     @GetMapping("/person-info")
-    public ResponseEntity<Object> searchPersonByName(@RequestParam("name") String name) {
+    public ResponseEntity<ResponseDto> searchPersonByName(@RequestParam("name") String name) {
         var result = service.getPersonInfo(name);
         return new ResponseEntity<>(result, HttpStatus.OK);
     }

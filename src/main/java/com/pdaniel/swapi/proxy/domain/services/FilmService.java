@@ -19,7 +19,7 @@ public class FilmService {
     public List<FilmDto> completeFilms(List<FilmDto> films){
 
         return films.stream().map(filmUrl ->{
-                    var film = client.searchFilmById(Util.getID(filmUrl.getUrl()));
+                    var film = client.getFilmById(Util.getID(filmUrl.getUrl()));
                     FilmDto f = new FilmDto();
                     f.setName(film.getTitle());
                     f.setReleaseDate(film.getReleaseDate());
