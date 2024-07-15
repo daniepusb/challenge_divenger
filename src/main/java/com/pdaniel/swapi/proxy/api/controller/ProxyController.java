@@ -27,6 +27,9 @@ public class ProxyController {
             throw new PersonNotFoundException("Name cannot be empty");
         }
         ResponseDto result = service.getPersonInfo(name);
+        if (result == null || result.getResults().isEmpty()) {
+            throw new PersonNotFoundException("Person not found with name: " + name);
+        }
         log.info("End");
 
         return new ResponseEntity<>(result, HttpStatus.OK);

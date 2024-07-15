@@ -8,6 +8,7 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.ControllerAdvice;
 import org.springframework.web.bind.annotation.ExceptionHandler;
+import org.springframework.web.bind.annotation.ResponseStatus;
 
 @Slf4j
 @ControllerAdvice
@@ -20,6 +21,7 @@ public class ExceptionHandlerController {
 	 }
 	 
 	 @ExceptionHandler(PersonNotFoundException.class)
+	 @ResponseStatus(HttpStatus.NOT_FOUND)
 	  public ResponseEntity<ResponseErrorDto> handlePersonNotFound(HttpServletRequest req, Exception ex) {
 	    log.error(ex.getMessage());
 	    return new ResponseEntity<>(ResponseErrorDto.builder().code("404").description(ex.getMessage()).build(), HttpStatus.NOT_FOUND);
