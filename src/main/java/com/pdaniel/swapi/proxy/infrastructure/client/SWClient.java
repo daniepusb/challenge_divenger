@@ -6,21 +6,21 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestParam;
 
-@FeignClient(name = "star-wars", url = "https://swapi.dev/api")
+@FeignClient(name = "star-wars", url = "${swapi-service.url}")
 public interface SWClient {
 
-    @GetMapping("/people/")
+    @GetMapping("${swapi-service.endpoint.people}")
     ResponseDto searchPeopleByName(@RequestParam("search") String name);
 
-    @GetMapping("/films/{id}")
+    @GetMapping("${swapi-service.endpoint.film}/{id}")
     FilmDto getFilmById(@PathVariable("id") String id);
 
-    @GetMapping("/planets/{id}")
+    @GetMapping("${swapi-service.endpoint.planet}/{id}")
     PlanetDto getPlanetsById(@PathVariable("id") String id);
 
-    @GetMapping("/starships/{id}")
+    @GetMapping("${swapi-service.endpoint.starship}/{id}")
     StarshipDto getStarshipById(@PathVariable("id") String id);
 
-    @GetMapping("/vehicles/{id}")
+    @GetMapping("${swapi-service.endpoint.vehicle}/{id}")
     VehicleDto getVehiclesById(@PathVariable("id") String id);
 }
