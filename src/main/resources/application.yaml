@@ -1,0 +1,17 @@
+
+server:
+  port: 8080
+
+project:
+   name: swapi-proxy
+   version: 1.0.0
+   description: Get an existing person by Name. The response is information about Person of Star Wars. Should work for any of the character names included in swapi. If the name is incorrect, it should respond with a JSON error and a 404 code. The fastest_vehicle_driven attribute should be filled with the name of the fastest "vehicle" or "starship" (with highest max_atmosphering_speed) driven by the character.
+
+swapi-service:
+     url: https://swapi.dev/api
+     endpoint:
+          people: /people
+          vehicle: /vehicles
+          starship: /starships
+          film: /films
+          planet: /planets

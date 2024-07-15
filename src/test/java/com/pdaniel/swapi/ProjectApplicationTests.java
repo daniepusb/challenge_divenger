@@ -1,4 +1,4 @@
-package com.pdaniel.project;
+package com.pdaniel.swapi;
 
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;
