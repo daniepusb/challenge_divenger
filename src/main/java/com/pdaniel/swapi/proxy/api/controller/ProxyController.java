@@ -1,6 +1,7 @@
 package com.pdaniel.swapi.proxy.api.controller;
 
 import com.pdaniel.swapi.proxy.domain.dto.ResponseDto;
+import com.pdaniel.swapi.proxy.domain.exception.PersonNotFoundException;
 import com.pdaniel.swapi.proxy.domain.services.ProxyService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
@@ -22,8 +23,12 @@ public class ProxyController {
     @GetMapping("/person-info")
     public ResponseEntity<ResponseDto> searchPersonByName(@RequestParam("name") String name) {
         log.info("Start");
+        if (name == null || name.trim().isEmpty()) {
+            throw new PersonNotFoundException("Name cannot be empty");
+        }
         ResponseDto result = service.getPersonInfo(name);
         log.info("End");
+
         return new ResponseEntity<>(result, HttpStatus.OK);
     }
 

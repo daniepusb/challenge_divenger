@@ -59,12 +59,17 @@ public class VehicleService {
 			var starshipsCompletes = completeStarships(starships);
 			starshipFastest = starshipsCompletes.stream().max(Comparator.comparing(StarshipDto::getMaxAtmospheringSpeedToInt));
 		}
-		if (vehicleFastest == null && starshipFastest == null) {
-			throw new VehicleNotFoundException("Vehicle not found");
-		}
 
-		return vehicleFastest.get().getMaxAtmospheringSpeedToInt() > starshipFastest.get().getMaxAtmospheringSpeedToInt() ?
-				vehicleFastest.get().getName() : starshipFastest.get().getName();
+		if (vehicleFastest.isPresent() && starshipFastest.isPresent()) {
+			return vehicleFastest.get().getMaxAtmospheringSpeedToInt() > starshipFastest.get().getMaxAtmospheringSpeedToInt()
+					? vehicleFastest.get().getName() : starshipFastest.get().getName();
+		} else if (vehicleFastest.isPresent()) {
+			return vehicleFastest.get().getName();
+		} else if (starshipFastest.isPresent()) {
+			return starshipFastest.get().getName();
+		} else {
+			return "";
+		}
 
 	}
 
