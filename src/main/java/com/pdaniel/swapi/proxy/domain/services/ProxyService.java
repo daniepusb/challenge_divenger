@@ -11,6 +11,8 @@ import lombok.NoArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.cache.annotation.CacheEvict;
+import org.springframework.cache.annotation.Cacheable;
 import org.springframework.stereotype.Service;
 
 import java.util.ArrayList;
@@ -30,6 +32,7 @@ public class ProxyService {
     @Autowired
     VehicleService vehiclesService;
 
+    @Cacheable(value="personInfo")
     public ResponseDto getPersonInfo(String name) {
         log.info("getPersonInfo: " + name);
 
@@ -75,6 +78,11 @@ public class ProxyService {
         response.setResults(personsList);
 
         return response;
+    }
+
+    @CacheEvict(cacheNames = "personInfo", key = "#name")
+    protected void clearPersonInfoCache(String name) {
+        log.info("Clearing cache for person with name: " + name);
     }
 
     private String getPlanetName(String url) {

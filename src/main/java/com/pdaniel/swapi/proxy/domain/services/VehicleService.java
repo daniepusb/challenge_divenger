@@ -6,6 +6,7 @@ import com.pdaniel.swapi.proxy.domain.exception.VehicleNotFoundException;
 import com.pdaniel.swapi.proxy.infrastructure.client.SWClient;
 import com.pdaniel.swapi.proxy.util.Util;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.cache.annotation.Cacheable;
 import org.springframework.stereotype.Service;
 
 import java.util.Comparator;
@@ -21,6 +22,7 @@ public class VehicleService {
 	@Autowired
 	SWClient client;
 
+	@Cacheable(value="vehicles", key = "#vehicles", unless = "#result == null")
 	public List<VehicleDto>  completeVehicles(List<VehicleDto> vehicles){
 
 		return vehicles.stream().map(vechicleUrl ->{
@@ -32,6 +34,7 @@ public class VehicleService {
 			}).toList();
 	}
 
+	@Cacheable(value="starships", key = "#starships", unless = "#result == null")
 	public List<StarshipDto> completeStarships(List<StarshipDto> starships){
 
 		return starships.stream().map(starshipUrl ->{
@@ -43,18 +46,17 @@ public class VehicleService {
 				}).collect(Collectors.toList());
 	}
 
-
 	public String getFastestVehicleName(List<VehicleDto> vehicles, List<StarshipDto> starships) {
 
 		Optional<VehicleDto> vehicleFastest = Optional.empty();
 		Optional<StarshipDto> starshipFastest = Optional.empty();
 
-		if (!vehicles.isEmpty()) {
+		if (vehicles != null && !vehicles.isEmpty()) {
 			log.info("getFastestVehicleOrStarship: " + vehicles.get(0).getUrl());
 			var vehiclesCompletes = completeVehicles(vehicles);
 			vehicleFastest = vehiclesCompletes.stream().max(Comparator.comparing(VehicleDto::getMaxAtmospheringSpeedToInt));
 		}
-		if (!starships.isEmpty()) {
+		if (starships != null && !starships.isEmpty()) {
 			log.info("getFastestVehicleOrStarship: " + starships.get(0).getUrl());
 			var starshipsCompletes = completeStarships(starships);
 			starshipFastest = starshipsCompletes.stream().max(Comparator.comparing(StarshipDto::getMaxAtmospheringSpeedToInt));

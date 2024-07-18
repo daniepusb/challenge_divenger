@@ -15,3 +15,7 @@ swapi-service:
           starship: /starships
           film: /films
           planet: /planets
+
+spring:
+  cache:
+    type: simple

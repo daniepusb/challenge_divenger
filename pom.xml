@@ -30,7 +30,7 @@
 		<springfox-swagger-ui.version>3.0.0</springfox-swagger-ui.version>
 		<springfox-bean-validators.version>3.0.0</springfox-bean-validators.version>
 		<springdoc-openapi-starter-webmvc-ui.version>2.6.0</springdoc-openapi-starter-webmvc-ui.version>
-
+		<spring-boot-starter-cache.version>3.3.1</spring-boot-starter-cache.version>
 	</properties>
 	<dependencies>
 		<dependency>
@@ -82,6 +82,14 @@
 			<artifactId>springdoc-openapi-starter-webmvc-ui</artifactId>
 			<version>${springdoc-openapi-starter-webmvc-ui.version}</version>
 		</dependency>
+
+		<!--		Cache-->
+		<dependency>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-starter-cache</artifactId>
+			<version>${spring-boot-starter-cache.version}</version>
+		</dependency>
+
 
 		<!-- https://mvnrepository.com/artifact/ch.qos.logback/logback-classic -->
 		<dependency>
