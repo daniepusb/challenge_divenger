@@ -28,8 +28,8 @@ public class SpringFoxConfig {
 	    return new ApiInfo(
 	      "My REST API", 
 	      "Some custom description of API.", 
-	      "API TOS", 
-	      "Terms of service", 
+	      "1.0",
+	      "https://example.com/terms",
 	      new Contact("John Doe", "www.example.com", "myeaddress@company.com"), 
 	      "License of API", "API license URL", Collections.emptyList());
 	}

@@ -3,10 +3,8 @@ package com.pdaniel.swapi.proxy.domain.dto;
 
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
-import lombok.AllArgsConstructor;
-import lombok.Builder;
-import lombok.Getter;
-import lombok.Setter;
+import com.fasterxml.jackson.annotation.JsonPropertyOrder;
+import lombok.*;
 
 import java.io.Serializable;
 import java.util.List;
@@ -15,6 +13,15 @@ import java.util.List;
 @Setter
 @Builder
 @AllArgsConstructor
+@NoArgsConstructor
+@JsonPropertyOrder({
+        "name",
+        "birth_year",
+        "gender",
+        "planet_name",
+        "fastest_vehicle_driven",
+        "films"
+})
 public class PersonDto implements Serializable {
 
     private static final long serialVersionUID = 6960929755180322552L;
